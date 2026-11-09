@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mansi Pannu — Website Developer & Creative Designer</title>
+    <meta name="description"
+        content="Websites, thumbnails and cinematic visuals for businesses that want to be remembered." />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+
+    <!-- Google Fonts: Syne & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Section specific styles for pure HTML */
+        .hero-grid {
+            display: grid;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1.12fr 0.88fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            max-width: 32rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .creative-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 640px) {
+            .creative-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .creative-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .col-span-2 {
+                grid-column: span 2;
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 640px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .contact-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1.05fr;
+                gap: 4rem;
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            max-width: 56rem;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+    <script src="/_aistudio-iframe.js?v=1f94f900"></script>
+</head>
+
+<body>
+
+    <!-- Background Ambience -->
+    <div
+        style="position: absolute; top: -11rem; left: 50%; transform: translateX(-50%); width: 540px; height: 540px; border-radius: 50%; background: rgba(139, 92, 246, 0.25); filter: blur(130px); pointer-events: none;">
+    </div>
+    <div
+        style="position: absolute; top: 7rem; right: -6rem; width: 440px; height: 440px; border-radius: 50%; background: rgba(249, 115, 22, 0.15); filter: blur(140px); pointer-events: none;">
+    </div>
+    <div class="grain-overlay"></div>
+
+    <!-- Header & Navbar -->
+    <header class="navbar">
+        <div class="container"
+            style="display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; padding-bottom: 1rem;">
+            <a href="#top" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                <span
+                    style="display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 0.75rem; background: linear-gradient(135deg, #8b5cf6, #f97316); font-family: var(--font-heading); font-size: 0.875rem; font-weight: 800; color: #fff;">MP</span>
+                <div style="line-height: 1.1;">
+                    <p style="font-family: var(--font-heading); font-size: 0.875rem; font-weight: 700; color: #fff;">
+                        Mansi Pannu</p>
+                    <p
+                        style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                        Developer & Designer</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav style="display: flex; align-items: center; gap: 0.5rem;" class="desktop-nav">
+                <a href="#about"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">About</a>
+                <a href="#skills"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">Skills</a>
+                <a href="#projects"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">Projects</a>
+                <a href="#creative"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">Creative</a>
+                <a href="#services"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">Services</a>
+                <a href="#contact"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; border-radius: 999px;">Contact</a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <a href="#contact" class="btn-primary"
+                    style="min-height: 42px; padding: 0.5rem 1.25rem; font-size: 13px;">Hire me ↗</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="top" style="position: relative; overflow: hidden; padding-top: 8rem; padding-bottom: 4rem;">
+        <div class="container hero-grid">
+            <div class="reveal-on-scroll">
+                <div class="eyebrow">
+                    <span class="pulsing-dot"></span>
+                    Available for freelance work
+                </div>
+                <h1 class="font-heading"
+                    style="margin-top: 1.5rem; font-size: clamp(3.1rem, 9vw, 5.6rem); font-weight: 800; line-height: 0.92; letter-spacing: -0.03em;">
+                    Mansi<br /><span class="text-gradient">Pannu</span>
+                </h1>
+                <p class="font-heading"
+                    style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 600; line-height: 1.3; color: #e5e5e5; max-width: 36rem;">
+                    Websites that look cinematic — and work flawlessly.
+                </p>
+                <p
+                    style="margin-top: 1rem; font-size: 1.05rem; color: var(--text-muted); max-width: 36rem; line-height: 1.7;">
+                    I'm a self-taught website developer and creative designer building fast, modern sites for local
+                    businesses — plus the thumbnails, posters and cinematic edits that make them impossible to ignore.
+                </p>
+
+                <div style="margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                    <a href="#projects" class="btn-primary">View my work →</a>
+                    <a href="#contact" class="btn-ghost">Contact me</a>
+                </div>
+
+                <div class="stats-grid">
+                    <div>
+                        <div class="font-heading" style="font-size: 1.5rem; font-weight: 700; color: #fff;">4</div>
+                        <div
+                            style="margin-top: 0.25rem; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-dim);">
+                            Live projects</div>
+                    </div>
+                    <div>
+                        <div class="font-heading" style="font-size: 1.5rem; font-weight: 700; color: #fff;">Nov '25
+                        </div>
+                        <div
+                            style="margin-top: 0.25rem; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-dim);">
+                            Self-taught since</div>
+                    </div>
+                    <div>
+                        <div class="font-heading" style="font-size: 1.5rem; font-weight: 700; color: #fff;">Certified
+                        </div>
+                        <div
+                            style="margin-top: 0.25rem; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-dim);">
+                            Backend developer</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Frame -->
+            <div class="reveal-on-scroll" style="position: relative; max-width: 380px; margin: 0 auto; width: 100%;">
+                <div class="photo-frame">
+                    <div class="inner" style="aspect-ratio: 4/5;">
+                        <img src="images/home-portrait.png" alt="Portrait playing an acoustic guitar"
+                            style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                </div>
+
+                <div
+                    style="position: absolute; top: 2rem; left: -1rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(11, 11, 11, 0.9); padding: 0.75rem 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);">
+                    <p
+                        style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-muted);">
+                        ✨ Design + code</p>
+                    <p class="font-heading"
+                        style="font-size: 13px; font-weight: 600; color: #fff; margin-top: 0.25rem;">One person, full
+                        package</p>
+                </div>
+
+                <a href="https://wa.me/918015814850" target="_blank"
+                    style="position: absolute; bottom: -1rem; right: -0.5rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(11, 11, 11, 0.9); padding: 0.75rem 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); text-decoration: none;">
+                    <p
+                        style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-muted);">
+                        WhatsApp</p>
+                    <p class="font-heading"
+                        style="font-size: 13px; font-weight: 600; color: #fff; margin-top: 0.25rem;">+91 80158 14850</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- About Section -->
+    <section id="about" class="section-shell">
+        <div style="display: grid; gap: 3.5rem;" class="hero-grid">
+            <div class="reveal-on-scroll">
+                <span class="eyebrow">About me</span>
+                <h2 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.04;">
+                    Self-taught, hands-on,<br /><span class="text-gradient">obsessed with detail.</span>
+                </h2>
+                <div
+                    style="margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1.25rem; font-size: 1rem; color: var(--text-muted); line-height: 1.7;">
+                    <p>
+                        I started learning to code on my own in November 2025 — no bootcamp, no classroom, just
+                        curiosity and a laptop. What began as wondering how websites actually work turned into a habit I
+                        couldn't stop: rebuilding menus, redesigning layouts, breaking things and fixing them again
+                        until the page did exactly what I pictured.
+                    </p>
+                    <p>
+                        Today I build clean, responsive websites for restaurants and small businesses, and design the
+                        visuals that go with them — thumbnails, posters, product shots and cinematic edits. I'm a
+                        certified backend developer too, so what I hand over isn't just good-looking. It's built to hold
+                        up.
+                    </p>
+                    <p style="color: #e5e5e5;">
+                        If your business deserves better than a template, that's exactly the work I want.
+                    </p>
+                </div>
+                <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span
+                        style="display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.85rem; font-size: 12px; color: #d4d4d4;">✓
+                        Self-taught developer</span>
+                    <span
+                        style="display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.85rem; font-size: 12px; color: #d4d4d4;">✓
+                        Creative designer</span>
+                    <span
+                        style="display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.85rem; font-size: 12px; color: #d4d4d4;">✓
+                        Certified backend</span>
+                    <span
+                        style="display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.85rem; font-size: 12px; color: #d4d4d4;">✓
+                        Fast delivery</span>
+                </div>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <div class="card-surface" style="padding: 2rem;">
+                    <p
+                        style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                        The journey</p>
+                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1.75rem;">
+                        <div style="display: flex; gap: 1.25rem;">
+                            <span
+                                style="width: 11px; height: 11px; border-radius: 50%; border: 2px solid #a78bfa; background: #050505; flex-shrink: 0; margin-top: 5px;"></span>
+                            <div>
+                                <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">Nov
+                                    2025</p>
+                                <p style="margin-top: 0.25rem; font-size: 0.875rem; color: var(--text-muted);">Wrote my
+                                    first lines of HTML and CSS — completely self-taught.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1.25rem;">
+                            <span
+                                style="width: 11px; height: 11px; border-radius: 50%; border: 2px solid #a78bfa; background: #050505; flex-shrink: 0; margin-top: 5px;"></span>
+                            <div>
+                                <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">
+                                    Early 2026</p>
+                                <p style="margin-top: 0.25rem; font-size: 0.875rem; color: var(--text-muted);">Shipped
+                                    my first live menu website for a real restaurant.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1.25rem;">
+                            <span
+                                style="width: 11px; height: 11px; border-radius: 50%; border: 2px solid #a78bfa; background: #050505; flex-shrink: 0; margin-top: 5px;"></span>
+                            <div>
+                                <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">2026
+                                </p>
+                                <p style="margin-top: 0.25rem; font-size: 0.875rem; color: var(--text-muted);">Earned my
+                                    Backend Developer certification.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1.25rem;">
+                            <span
+                                style="width: 11px; height: 11px; border-radius: 50%; border: 2px solid #a78bfa; background: #050505; flex-shrink: 0; margin-top: 5px;"></span>
+                            <div>
+                                <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">Now
+                                </p>
+                                <p style="margin-top: 0.25rem; font-size: 0.875rem; color: var(--text-muted);">Four live
+                                    projects and taking on client work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-shell">
+        <div class="reveal-on-scroll">
+            <span class="eyebrow">Skills</span>
+            <h2 class="font-heading"
+                style="margin-top: 1.25rem; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700;">
+                Two crafts, <span class="text-gradient">one standard.</span>
+            </h2>
+            <p style="margin-top: 1rem; font-size: 1rem; color: var(--text-muted); max-width: 42rem;">
+                I build the site and design the visuals — so your brand stays consistent from the homepage to the
+                thumbnail.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Dev Skills -->
+            <div class="card-surface reveal-on-scroll" style="padding: 2rem;">
+                <h3 class="font-heading" style="font-size: 1.15rem; font-weight: 700; color: #fff;">Development</h3>
+                <p style="font-size: 12px; color: var(--text-dim); margin-top: 0.25rem;">Structure, styling and logic —
+                    from a landing page to the backend behind it.</p>
+                <div style="margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>HTML</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">92%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="92%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>CSS</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">90%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="90%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>JavaScript</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">82%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="82%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>Backend Development <span
+                                    style="font-size: 10px; text-transform: uppercase; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); color: #c4b5fd; padding: 2px 6px; border-radius: 999px; margin-left: 6px;">Certified</span></span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">78%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="78%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>Excel & Spreadsheets</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">90%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="90%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative Skills -->
+            <div class="card-surface reveal-on-scroll" style="padding: 2rem;">
+                <h3 class="font-heading" style="font-size: 1.15rem; font-weight: 700; color: #fff;">Creative</h3>
+                <p style="font-size: 12px; color: var(--text-dim); margin-top: 0.25rem;">Thumbnails, posters and
+                    cinematic visuals that carry a brand's mood.</p>
+                <div style="margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>YouTube Thumbnails</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">92%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="92%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>Poster Design</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">88%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="88%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>Cinematic Product Shots</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">85%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="85%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+                            <span>Cinematic Video Editing</span>
+                            <span style="font-family: var(--font-mono); color: var(--text-dim);">84%</span>
+                        </div>
+                        <div
+                            style="margin-top: 0.5rem; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden;">
+                            <div class="skill-bar-fill" data-width="84%"
+                                style="width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316); transition: width 1s ease;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-shell">
+        <div class="reveal-on-scroll"
+            style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <span class="eyebrow">Selected projects</span>
+                <h2 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700;">
+                    Live sites, <span class="text-gradient">not mockups.</span>
+                </h2>
+                <p style="margin-top: 1rem; font-size: 1rem; color: var(--text-muted); max-width: 36rem;">
+                    Real menus, real businesses, real links. Every card opens the actual site — no screenshots to hide
+                    behind.
+                </p>
+            </div>
+            <p
+                style="font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim);">
+                04 projects</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="card-surface reveal-on-scroll" style="overflow: hidden;">
+                <a href="https://menu-coral-one.vercel.app/#menu" target="_blank"
+                    style="display: block; aspect-ratio: 16/10; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none;">
+                    <iframe src="https://menu-coral-one.vercel.app/#menu" loading="lazy"
+                        style="position: absolute; left: 0; top: 0; width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; border: 0; pointer-events: none;"></iframe>
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #080808, transparent);">
+                    </div>
+                </a>
+                <div style="padding: 1.5rem;">
+                    <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">Live
+                        restaurant menu</p>
+                    <h3 class="font-heading"
+                        style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 700; color: #fff;">Restaurant Menu
+                        Website</h3>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">A full restaurant menu
+                        built for speed and clarity — dish categories, prices and a mobile-first layout customers can
+                        scan in seconds.</p>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">HTML</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">CSS</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">JavaScript</span>
+                    </div>
+                    <a href="https://menu-coral-one.vercel.app/#menu" target="_blank" class="btn-ghost"
+                        style="margin-top: 1.5rem; font-size: 13px; min-height: 40px; padding: 0.5rem 1rem;">Live demo
+                        ↗</a>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="card-surface reveal-on-scroll" style="overflow: hidden;">
+                <a href="https://pannumansi238-collab.github.io/italian-menu/" target="_blank"
+                    style="display: block; aspect-ratio: 16/10; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none;">
+                    <iframe src="https://pannumansi238-collab.github.io/italian-menu/" loading="lazy"
+                        style="position: absolute; left: 0; top: 0; width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; border: 0; pointer-events: none;"></iframe>
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #080808, transparent);">
+                    </div>
+                </a>
+                <div style="padding: 1.5rem;">
+                    <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                        Editorial food design</p>
+                    <h3 class="font-heading"
+                        style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 700; color: #fff;">Italian Menu
+                        Website</h3>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">An elegant Italian
+                        menu experience with warm typography, rich sections and a layout that feels as considered as the
+                        restaurant itself.</p>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">HTML</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">CSS</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">JavaScript</span>
+                    </div>
+                    <a href="https://pannumansi238-collab.github.io/italian-menu/" target="_blank" class="btn-ghost"
+                        style="margin-top: 1.5rem; font-size: 13px; min-height: 40px; padding: 0.5rem 1rem;">Live demo
+                        ↗</a>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="card-surface reveal-on-scroll" style="overflow: hidden;">
+                <a href="https://menupart3-demo.vercel.app/" target="_blank"
+                    style="display: flex; align-items: center; justify-content: center; aspect-ratio: 16/10; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(249, 115, 22, 0.25)); text-decoration: none;">
+                    <div style="text-align: center;">
+                        <p class="font-heading" style="font-size: 1.75rem; font-weight: 800; color: #fff;">Menu Demo
+                            (Part 3)</p>
+                        <span
+                            style="display: inline-block; margin-top: 0.5rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.3); padding: 4px 10px; border-radius: 999px; color: #e5e5e5;">Live
+                            site</span>
+                    </div>
+                </a>
+                <div style="padding: 1.5rem;">
+                    <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">Third
+                        iteration</p>
+                    <h3 class="font-heading"
+                        style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 700; color: #fff;">Menu Demo (Part
+                        3)</h3>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">The third build in my
+                        menu series — refined spacing, cleaner structure and faster navigation between sections.</p>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">HTML</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">CSS</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">JavaScript</span>
+                    </div>
+                    <a href="https://menupart3-demo.vercel.app/" target="_blank" class="btn-ghost"
+                        style="margin-top: 1.5rem; font-size: 13px; min-height: 40px; padding: 0.5rem 1rem;">Live demo
+                        ↗</a>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="card-surface reveal-on-scroll" style="overflow: hidden;">
+                <a href="https://spice-flow-dine.base44.app/" target="_blank"
+                    style="display: flex; align-items: center; justify-content: center; aspect-ratio: 16/10; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(217, 70, 239, 0.25)); text-decoration: none;">
+                    <div style="text-align: center;">
+                        <p class="font-heading" style="font-size: 1.75rem; font-weight: 800; color: #fff;">Spice Flow
+                            Dine</p>
+                        <span
+                            style="display: inline-block; margin-top: 0.5rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.3); padding: 4px 10px; border-radius: 999px; color: #e5e5e5;">Live
+                            site</span>
+                    </div>
+                </a>
+                <div style="padding: 1.5rem;">
+                    <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">Full
+                        brand website</p>
+                    <h3 class="font-heading"
+                        style="margin-top: 0.5rem; font-size: 1.25rem; font-weight: 700; color: #fff;">Spice Flow Dine
+                    </h3>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">A dine-in brand site
+                        for a modern, spice-forward restaurant — built end to end with a bold visual identity and a
+                        clear path to booking.</p>
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">Base44</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">Responsive
+                            UI</span>
+                        <span
+                            style="font-size: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: #a3a3a3; font-family: var(--font-mono);">Brand
+                            design</span>
+                    </div>
+                    <a href="https://spice-flow-dine.base44.app/" target="_blank" class="btn-ghost"
+                        style="margin-top: 1.5rem; font-size: 13px; min-height: 40px; padding: 0.5rem 1rem;">Live demo
+                        ↗</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- Creative Work Section -->
+    <section id="creative" class="section-shell">
+        <div class="reveal-on-scroll"
+            style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <span class="eyebrow">Creative work</span>
+                <h2 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700;">
+                    Frame by frame, <span class="text-gradient">pixel by pixel.</span>
+                </h2>
+                <p style="margin-top: 1rem; font-size: 1rem; color: var(--text-muted); max-width: 42rem;">
+                    Thumbnails, posters, product stills and cinematic reels — click any piece to view it full size.
+                </p>
+            </div>
+            <p style="font-size: 12px; color: var(--text-dim);">✨ Sample visuals — swap in your own</p>
+        </div>
+
+        <h3 class="font-heading"
+            style="margin-top: 1.5rem; margin-bottom: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d6d3d1;">
+            ### Cinematic Product Still
+        </h3>
+
+        <div class="creative-grid">
+            <!-- Item 1 -->
+            <button class="creative-card-btn reveal-on-scroll" data-title="Cinematic Product Still"
+                data-category="Product Shots" data-note="Studio-lit bottle study with a violet rim and warm accent."
+                data-image="images/creative-1.png"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 4/5; position: relative;">
+                    <img src="images/creative-1.png" alt="Cinematic Product Still"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            Product Shots</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Cinematic
+                            Product Still</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Item 2 (Wide) -->
+            <button class="creative-card-btn col-span-2 reveal-on-scroll" data-title="Neon Street Study"
+                data-category="Video Reels" data-note="Moody night footage graded for a cinematic trailer feel."
+                data-image="images/creative-2.png"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 16/10; position: relative;">
+                    <img src="images/creative-2.png" alt="Neon Street Study"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            Video Reels ▶</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Neon Street
+                            Study</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Item 3 -->
+            <button class="creative-card-btn reveal-on-scroll" data-title="Bold Poster Composition"
+                data-category="Posters" data-note="Geometric poster artwork built for print and social."
+                data-image="images/creative-3.png"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 4/5; position: relative;">
+                    <img src="images/creative-3.png" alt="Bold Poster Composition"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            Posters</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Bold Poster
+                            Composition</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Item 4 (Wide) -->
+            <button class="creative-card-btn col-span-2 reveal-on-scroll" data-title="Rim-Lit Thumbnail Frame"
+                data-category="YouTube Thumbnails" data-note="High-contrast frame designed to stop the scroll."
+                data-image="images/creative-4.jpg"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 16/10; position: relative;">
+                    <img src="images/creative-4.jpg" alt="Rim-Lit Thumbnail Frame"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            YouTube Thumbnails</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Rim-Lit
+                            Thumbnail Frame</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Item 5 -->
+            <button class="creative-card-btn reveal-on-scroll" data-title="Product Hero Shot"
+                data-category="Product Shots" data-note="Floating product with smoke and a controlled orange glow."
+                data-image="images/creative-5.png"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 4/5; position: relative;">
+                    <img src="images/creative-5.png" alt="Product Hero Shot"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            Product Shots</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Product
+                            Hero Shot</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Item 6 -->
+            <button class="creative-card-btn reveal-on-scroll" data-title="Studio Desk Scene"
+                data-category="Behind the Scenes" data-note="Cinematic still life lighting for a creator brand."
+                data-image="images/creative-6.jpg"
+                style="background: none; border: 0; padding: 0; cursor: pointer; text-align: left; width: 100%;">
+                <div class="card-surface" style="overflow: hidden; aspect-ratio: 4/5; position: relative;">
+                    <img src="images/creative-6.jpg" alt="Studio Desk Scene"
+                        style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, #050505, transparent 60%);">
+                    </div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem;">
+                        <p style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;">
+                            Behind the Scenes</p>
+                        <p class="font-heading"
+                            style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-top: 0.25rem;">Studio Desk
+                            Scene</p>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- Services Section -->
+    <section id="services" class="section-shell">
+        <div class="reveal-on-scroll">
+            <span class="eyebrow">Services</span>
+            <h2 class="font-heading"
+                style="margin-top: 1.25rem; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 700;">
+                What I can <span class="text-gradient">build for you.</span>
+            </h2>
+            <p style="margin-top: 1rem; font-size: 1rem; color: var(--text-muted); max-width: 42rem;">
+                One person for the website and the visuals around it — so nothing gets lost between your designer and
+                your developer.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="card-surface reveal-on-scroll" style="padding: 1.75rem; display: flex; flex-direction: column;">
+                <span
+                    style="width: 3rem; height: 3rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">💻</span>
+                <h3 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 700; color: #fff;">Website Development
+                </h3>
+                <p style="margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-muted); flex: 1;">Fast, responsive
+                    websites built by hand — restaurant menus, landing pages and business sites that work on every
+                    screen.</p>
+                <ul
+                    style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px; color: #d4d4d4;">
+                    <li>✓ Mobile-first layouts</li>
+                    <li>✓ Clean, fast code</li>
+                    <li>✓ Launch-ready delivery</li>
+                </ul>
+            </div>
+
+            <div class="card-surface reveal-on-scroll" style="padding: 1.75rem; display: flex; flex-direction: column;">
+                <span
+                    style="width: 3rem; height: 3rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🎨</span>
+                <h3 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 700; color: #fff;">YouTube Thumbnails &
+                    Posters</h3>
+                <p style="margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-muted); flex: 1;">High-contrast
+                    thumbnails and poster artwork designed to earn the click and hold the eye in a crowded feed.</p>
+                <ul
+                    style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px; color: #d4d4d4;">
+                    <li>✓ Scroll-stopping composition</li>
+                    <li>✓ Print + social sizes</li>
+                    <li>✓ Brand-consistent style</li>
+                </ul>
+            </div>
+
+            <div class="card-surface reveal-on-scroll" style="padding: 1.75rem; display: flex; flex-direction: column;">
+                <span
+                    style="width: 3rem; height: 3rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📷</span>
+                <h3 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 700; color: #fff;">Cinematic Product
+                    Shots</h3>
+                <p style="margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-muted); flex: 1;">Moody,
+                    studio-style product imagery with controlled light — the kind of shot that makes a small product
+                    look premium.</p>
+                <ul
+                    style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px; color: #d4d4d4;">
+                    <li>✓ Dramatic lighting</li>
+                    <li>✓ Sharp detail</li>
+                    <li>✓ Ad-ready crops</li>
+                </ul>
+            </div>
+
+            <div class="card-surface reveal-on-scroll" style="padding: 1.75rem; display: flex; flex-direction: column;">
+                <span
+                    style="width: 3rem; height: 3rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🎬</span>
+                <h3 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 700; color: #fff;">Cinematic Video
+                    Editing</h3>
+                <p style="margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-muted); flex: 1;">Short-form edits
+                    with colour grading, pacing and a real sense of atmosphere — built for reels and product films.</p>
+                <ul
+                    style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px; color: #d4d4d4;">
+                    <li>✓ Colour grading</li>
+                    <li>✓ Sound-led pacing</li>
+                    <li>✓ Reels & shorts</li>
+                </ul>
+            </div>
+
+            <div class="card-surface reveal-on-scroll" style="padding: 1.75rem; display: flex; flex-direction: column;">
+                <span
+                    style="width: 3rem; height: 3rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(249, 115, 22, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📊</span>
+                <h3 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 700; color: #fff;">Excel Sheet Work
+                </h3>
+                <p style="margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-muted); flex: 1;">Clean
+                    spreadsheets that actually get used — tidy data entry, formulas, formatting and reports that make
+                    sense at a glance.</p>
+                <ul
+                    style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 13px; color: #d4d4d4;">
+                    <li>✓ Data clean-up</li>
+                    <li>✓ Formulas & reports</li>
+                    <li>✓ Clear formatting</li>
+                </ul>
+            </div>
+
+            <!-- Something else card -->
+            <a href="#contact" class="card-surface reveal-on-scroll"
+                style="padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(249, 115, 22, 0.2)); text-decoration: none;">
+                <div>
+                    <p
+                        style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.7);">
+                        Something else?</p>
+                    <h3 class="font-heading"
+                        style="margin-top: 0.75rem; font-size: 1.5rem; font-weight: 700; line-height: 1.2; color: #fff;">
+                        Tell me what you need — I'll tell you how I'd build it.</h3>
+                </div>
+                <span
+                    style="margin-top: 2rem; font-size: 0.875rem; font-weight: 600; color: #fff; display: inline-flex; align-items: center; gap: 0.5rem;">Start
+                    a conversation →</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="hairline"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-shell">
+        <div class="contact-grid">
+            <!-- Left Info -->
+            <div class="reveal-on-scroll">
+                <span class="eyebrow">Contact</span>
+                <h2 class="font-heading"
+                    style="margin-top: 1.25rem; font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 700; line-height: 1.03;">
+                    Let's make your business<br /><span class="text-gradient">look the part.</span>
+                </h2>
+                <p
+                    style="margin-top: 1.25rem; font-size: 1rem; color: var(--text-muted); line-height: 1.7; max-width: 28rem;">
+                    Tell me what you're building — a new site, a menu refresh, thumbnails or a product film. I reply
+                    personally, usually within a day.
+                </p>
+
+                <div style="margin-top: 2.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="tel:+918015814850" class="card-surface"
+                        style="display: flex; align-items: center; gap: 1rem; padding: 1rem; text-decoration: none;">
+                        <span
+                            style="width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📞</span>
+                        <div style="flex: 1;">
+                            <span
+                                style="display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim);">Phone</span>
+                            <span style="display: block; font-size: 0.875rem; font-weight: 600; color: #fff;">+91 80158
+                                14850</span>
+                        </div>
+                        <span style="color: var(--text-dim);">↗</span>
+                    </a>
+
+                    <a href="https://wa.me/918015814850" target="_blank" class="card-surface"
+                        style="display: flex; align-items: center; gap: 1rem; padding: 1rem; text-decoration: none;">
+                        <span
+                            style="width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">💬</span>
+                        <div style="flex: 1;">
+                            <span
+                                style="display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim);">WhatsApp</span>
+                            <span style="display: block; font-size: 0.875rem; font-weight: 600; color: #fff;">Message me
+                                directly</span>
+                        </div>
+                        <span style="color: var(--text-dim);">↗</span>
+                    </a>
+
+                    <a href="https://instagram.com/webs.mtrust" target="_blank" class="card-surface"
+                        style="display: flex; align-items: center; gap: 1rem; padding: 1rem; text-decoration: none;">
+                        <span
+                            style="width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📷</span>
+                        <div style="flex: 1;">
+                            <span
+                                style="display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim);">Instagram</span>
+                            <span
+                                style="display: block; font-size: 0.875rem; font-weight: 600; color: #fff;">@webs.mtrust</span>
+                        </div>
+                        <span style="color: var(--text-dim);">↗</span>
+                    </a>
+                </div>
+
+                <!-- Instagram QR Code -->
+                <div
+                    style="margin-top: 2rem; display: flex; align-items: center; gap: 1rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.03); padding: 1rem;">
+                    <div
+                        style="width: 92px; height: 92px; flex-shrink: 0; background: #fff; border-radius: 0.75rem; padding: 6px; overflow: hidden;">
+                        <img src="../images/instagram-qr.png" alt="Instagram QR Code"
+                            style="width: 100%; height: 100%; object-fit: contain;" />
+                    </div>
+                    <div>
+                        <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">Scan to
+                            follow</p>
+                        <p style="margin-top: 0.25rem; font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                            Point your camera at the code to open <b style="color: #fff;">@webs.mtrust</b> on Instagram.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form -->
+            <div class="reveal-on-scroll">
+                <div class="card-surface" style="padding: 2rem;">
+                    <div id="formSuccess" style="display: none; text-align: center; padding: 3rem 1rem;">
+                        <div
+                            style="width: 4rem; height: 4rem; border-radius: 50%; border: 1px solid rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.1); margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: #34d399;">
+                            ✓</div>
+                        <h3 class="font-heading"
+                            style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 700; color: #fff;">Message
+                            received</h3>
+                        <p
+                            style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-muted); max-width: 22rem; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                            Thanks for reaching out — I read every message myself and usually reply within a day. If
+                            it's urgent, WhatsApp is the fastest way to reach me.
+                        </p>
+                        <div style="margin-top: 1.75rem; display: flex; justify-content: center; gap: 0.75rem;">
+                            <button type="button" id="resetFormBtn" class="btn-ghost">Send another</button>
+                            <a href="https://wa.me/918015814850" target="_blank" class="btn-primary">WhatsApp me</a>
+                        </div>
+                    </div>
+
+                    <form id="contactForm">
+                        <h3 class="font-heading" style="font-size: 1.25rem; font-weight: 700; color: #fff;">Send a
+                            message</h3>
+                        <p style="margin-top: 0.35rem; font-size: 0.875rem; color: var(--text-muted);">A few lines is
+                            all I need to get started.</p>
+
+                        <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+                                <label for="name"
+                                    style="display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 0.35rem;">Your
+                                    name</label>
+                                <input id="name" required maxlength="80" placeholder="Your name" class="input-base" />
+                            </div>
+                            <div>
+                                <label for="email"
+                                    style="display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 0.35rem;">Email</label>
+                                <input id="email" type="email" required maxlength="160" placeholder="you@business.com"
+                                    class="input-base" />
+                            </div>
+                            <div>
+                                <label for="message"
+                                    style="display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 0.35rem;">Project
+                                    details</label>
+                                <textarea id="message" required rows="5" maxlength="2000"
+                                    placeholder="I need a website for my restaurant, with a menu and online orders…"
+                                    class="input-base" style="resize: none;"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="margin-top: 1.5rem; width: 100%;">Send message
+                            ✉</button>
+                        <p style="margin-top: 0.75rem; text-align: center; font-size: 11px; color: var(--text-dim);">
+                            Goes straight to me — no accounts, no spam.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="position: relative; border-top: 1px solid rgba(255, 255, 255, 0.1); background: #050505; padding-top: 3rem; padding-bottom: 3rem;">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; gap: 2.5rem; justify-content: space-between;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem;">
+                    <div style="max-width: 24rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span
+                                style="display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 0.75rem; background: linear-gradient(135deg, #8b5cf6, #f97316); font-family: var(--font-heading); font-size: 0.875rem; font-weight: 800; color: #fff;">MP</span>
+                            <div style="line-height: 1.1;">
+                                <p class="font-heading" style="font-size: 0.875rem; font-weight: 700; color: #fff;">
+                                    Mansi Pannu</p>
+                                <p
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                                    Developer & Designer</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-dim); line-height: 1.6;">
+                            Websites, thumbnails and cinematic visuals for businesses that want to be remembered.
+                        </p>
+                    </div>
+
+                    <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+                        <div>
+                            <p
+                                style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                                Explore</p>
+                            <ul
+                                style="margin-top: 0.75rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;">
+                                <li><a href="#about" style="color: var(--text-muted); text-decoration: none;">About</a>
+                                </li>
+                                <li><a href="#skills"
+                                        style="color: var(--text-muted); text-decoration: none;">Skills</a></li>
+                                <li><a href="#projects"
+                                        style="color: var(--text-muted); text-decoration: none;">Projects</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                                More</p>
+                            <ul
+                                style="margin-top: 0.75rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;">
+                                <li><a href="#creative"
+                                        style="color: var(--text-muted); text-decoration: none;">Creative</a></li>
+                                <li><a href="#services"
+                                        style="color: var(--text-muted); text-decoration: none;">Services</a></li>
+                                <li><a href="#contact"
+                                        style="color: var(--text-muted); text-decoration: none;">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim);">
+                                Connect</p>
+                            <ul
+                                style="margin-top: 0.75rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;">
+                                <li><a href="https://wa.me/918015814850" target="_blank"
+                                        style="color: var(--text-muted); text-decoration: none;">WhatsApp ↗</a></li>
+                                <li><a href="https://instagram.com/webs.mtrust" target="_blank"
+                                        style="color: var(--text-muted); text-decoration: none;">Instagram ↗</a></li>
+                                <li><a href="tel:+918015814850"
+                                        style="color: var(--text-muted); text-decoration: none;">Call me</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 12px; color: var(--text-dim);">
+                    <p>© 2026 Mansi Pannu. All rights reserved.</p>
+                    <p>Built by hand with HTML, CSS, JavaScript — and a lot of late nights.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918015814850" target="_blank" class="floating-whatsapp"
+        aria-label="Chat with Mansi on WhatsApp">
+        <span style="font-size: 1.25rem;">💬</span>
+        <span>Chat on WhatsApp</span>
+    </a>
+
+    <!-- Lightbox Modal -->
+    <div id="creativeModal" class="modal-overlay">
+        <div class="modal-box">
+            <button id="closeModalBtn"
+                style="position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.6); color: #fff; cursor: pointer; font-size: 1.25rem;">✕</button>
+            <div
+                style="max-height: 70vh; background: #000; display: flex; align-items: center; justify-content: center;">
+                <img id="modalImage" src="" alt="Creative Work"
+                    style="max-height: 70vh; width: 100%; object-fit: contain;" />
+            </div>
+            <div
+                style="padding: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <p id="modalCategory"
+                        style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: #c4b5fd;"></p>
+                    <h3 id="modalTitle" class="font-heading"
+                        style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 0.25rem;"></h3>
+                    <p id="modalNote" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;"></p>
+                </div>
+                <span
+                    style="border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.85rem; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-dim);">Visual
+                    Showcase</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

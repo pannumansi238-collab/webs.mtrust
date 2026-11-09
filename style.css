@@ -1,0 +1,329 @@
+/* ==========================================================================
+   MANSI PANNU — CREATIVE CODE PORTFOLIO
+   Standalone CSS Stylesheet (Self-contained, no frameworks required)
+   ========================================================================== */
+
+:root {
+    --bg-dark: #050505;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-focus: rgba(139, 92, 246, 0.6);
+    --text-white: #ffffff;
+    --text-muted: #a3a3a3;
+    --text-dim: #737373;
+    --violet: #8b5cf6;
+    --fuchsia: #d946ef;
+    --orange: #f97316;
+    --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Typography */
+.font-heading {
+    font-family: var(--font-heading);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.text-gradient {
+    background-image: linear-gradient(100deg, #c4b5fd 0%, #f0abfc 40%, #fdba74 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Containers & Layout */
+.container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.section-shell {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .section-shell {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+}
+
+.hairline {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    width: 100%;
+    height: 1px;
+}
+
+.grain-overlay {
+    pointer-events: none;
+    opacity: 0.5;
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+/* Eyebrow Badge */
+.eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a3a3a3;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: inline-flex;
+}
+
+.pulsing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    position: relative;
+}
+
+.pulsing-dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: #34d399;
+    opacity: 0.4;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+/* Card Surface */
+.card-surface {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+}
+
+.card-surface:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 26px 70px -40px rgba(139, 92, 246, 0.9);
+}
+
+/* Buttons */
+.btn-primary {
+    color: #fff;
+    background-image: linear-gradient(100deg, #8b5cf6 0%, #c2479f 48%, #f97316 100%);
+    background-position: 0%;
+    background-size: 160% 100%;
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    transition: background-position 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 14px 44px -16px rgba(139, 92, 246, 0.9);
+}
+
+.btn-primary:hover {
+    background-position: 100%;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 54px -16px rgba(249, 115, 22, 0.65);
+}
+
+.btn-ghost {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.32);
+    transform: translateY(-2px);
+}
+
+/* Inputs */
+.input-base {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.9rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.8rem 1rem;
+    font-size: 0.925rem;
+    font-family: inherit;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.input-base::placeholder {
+    color: #6b6b6b;
+}
+
+.input-base:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(139, 92, 246, 0.7);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.16);
+}
+
+/* Photo Frame */
+.photo-frame {
+    background: linear-gradient(150deg, rgba(139, 92, 246, 0.7), rgba(255, 255, 255, 0.07) 45%, rgba(249, 115, 22, 0.55));
+    border-radius: 1.75rem;
+    padding: 1px;
+    position: relative;
+}
+
+.photo-frame>.inner {
+    background: radial-gradient(120% 90% at 15% 0, rgba(139, 92, 246, 0.32), transparent 62%),
+        radial-gradient(110% 80% at 95% 100%, rgba(249, 115, 22, 0.24), transparent 60%), #0b0b0b;
+    border-radius: 1.7rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-frame>.inner::after {
+    content: "";
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 34px 34px;
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, #000, transparent 78%);
+    mask-image: radial-gradient(circle at 50% 40%, #000, transparent 78%);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(5, 5, 5, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    background-color: #25D366;
+    color: #04331a;
+    padding: 1rem;
+    box-shadow: 0 18px 45px -12px rgba(37, 211, 102, 0.65);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    padding-right: 1.5rem;
+    gap: 0.5rem;
+    transform: translateY(-2px);
+}
+
+.floating-whatsapp span {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.floating-whatsapp:hover span {
+    max-width: 140px;
+    opacity: 1;
+}
+
+/* Scroll reveal helper */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
